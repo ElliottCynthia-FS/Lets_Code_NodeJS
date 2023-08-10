@@ -69,7 +69,7 @@ router.patch('/:id', (req, res) => {
     const id = req.params.id;
     const user = users.find(u => u.id === parseInt(id));
     if (user) {
-        user.age = 89;
+        user.age = 16;
         res.json(user);
     } else {
         res.status(404).json({ message: "User not found" });
