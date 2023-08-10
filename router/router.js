@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// Create array of objects to use for GET, POST, PUT, DELETE
+// Create array of objects to use for GET, POST, PATCH, DELETE
 const users = [
     {
         id: 1,
@@ -93,7 +93,6 @@ module.exports = router;
 
 
 //! Notes from lessons:
-
 /*
 // Calling: http://localhost:3000/exercise
 router.get("/", (req, res, next) => {
@@ -105,9 +104,7 @@ router.get("/", (req, res, next) => {
         }, 
     });
 });
-*/
 
-/*
 // Example of adding parameter and GET by that parameter
 // syntax: :name after "/" (after base route)
 // http://localhost:3000/exercise/:city
@@ -120,9 +117,7 @@ router.get('/:city', (req, res) => {
         message: "City from Exercise"
     })
 })
-*/
 
-/*
 // If calling: http://localhost:3000/exercise/34 - 34 is the id
 router.get('/:id', (req, res, next) => {
     // Create variable: Get the id from the request
