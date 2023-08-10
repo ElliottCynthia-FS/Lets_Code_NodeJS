@@ -1,10 +1,9 @@
-//~ import router from '../router/router';
 const router = require('../router/router');
-//if you want to call an express listener, you need to call the express function
 const express = require('express');
 const app = express();
 
 // use middleware to parse json payloads into our request model
+// Use this before any other middleware or routes
 app.use(express.json());
 //request.body.username request.body.password
 
@@ -13,15 +12,15 @@ app.use(express.json());
 app.get("/", (req, res) => {
     // First is string calling localhost:3000
     // Second is request and response
-    res.status(200).json({ message: 'Service is up' });
+    res.status(200).json({ message: 'Service is UP!' });
 });
 
 // Use middleware to define router
 // Name "/" whatever you want (ex: "/exercise")
 // *IMPORTANT* NEVER use "/" or router twice!
 //* Ex: app.use('/user', userRouter); - good
-//* app.use('/', router); - bad b/c already used "/" above
-app.use("/exercise", router);
+//* app.use('/', router); - bad b/c already used both '/' and router
+app.use("/users", router);
 
 // use middleware to handle errors and bad URL paths
 app.use((req, res, next) => {
@@ -42,7 +41,3 @@ app.use((error, req, res, next) => {
 });
 
 module.exports = app;
-//~ export default app;
-//~ export { app };
-
-
